@@ -13,6 +13,9 @@ A modern and interactive web application for showcasing your projects with engag
 *   **Enhanced Call-to-Actions**: Buttons for project links and GitHub repositories (if provided) now include relevant icons for better visual cues.
 *   **Tilt-Follow Effect**: Project cards react to mouse movement, creating an immersive tilt effect that follows your cursor.
 
+<img width="1934" height="1104" alt="image" src="https://github.com/user-attachments/assets/11eb7696-82f4-4faf-8453-fb40a72b6206" />
+
+
 ## 🚀 Technologies Used
 
 *   **React**: A JavaScript library for building user interfaces.
