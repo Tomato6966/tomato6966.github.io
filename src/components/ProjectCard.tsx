@@ -10,19 +10,28 @@ interface ProjectCardProps {
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   const hasGradient = !project.images.length;
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isFading, setIsFading] = useState(false);
   const [tiltX, setTiltX] = useState(0);
   const [tiltY, setTiltY] = useState(0);
 
   const handlePrev = () => {
-    setCurrentImageIndex((prevIndex) =>
-      prevIndex === 0 ? project.images.length - 1 : prevIndex - 1
-    );
+    setIsFading(true);
+    setTimeout(() => {
+      setCurrentImageIndex((prevIndex) =>
+        prevIndex === 0 ? project.images.length - 1 : prevIndex - 1
+      );
+      setIsFading(false);
+    }, 300); // Fade out duration
   };
 
   const handleNext = () => {
-    setCurrentImageIndex((prevIndex) =>
-      prevIndex === project.images.length - 1 ? 0 : prevIndex + 1
-    );
+    setIsFading(true);
+    setTimeout(() => {
+      setCurrentImageIndex((prevIndex) =>
+        prevIndex === project.images.length - 1 ? 0 : prevIndex + 1
+      );
+      setIsFading(false);
+    }, 300); // Fade out duration
   };
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -49,9 +58,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
     if (project.images.length <= 1) return; // No auto-switch for single image or no images
 
     const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) =>
-        prevIndex === project.images.length - 1 ? 0 : prevIndex + 1
-      );
+      setIsFading(true);
+      setTimeout(() => {
+        setCurrentImageIndex((prevIndex) =>
+          prevIndex === project.images.length - 1 ? 0 : prevIndex + 1
+        );
+        setIsFading(false);
+      }, 300); // Fade out duration
     }, 5000);
 
     return () => clearInterval(interval);
@@ -73,7 +86,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           <img
             src={project.images[currentImageIndex]}
             alt={`${project.title} ${currentImageIndex + 1}`}
-            className="w-full h-full object-contain rounded"
+            className={`w-full h-full object-contain rounded transition-opacity duration-300 ${isFading ? 'opacity-0' : 'opacity-100'}`}
             loading="lazy"
           />
           {project.images.length > 1 && (

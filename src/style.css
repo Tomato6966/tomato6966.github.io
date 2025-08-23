@@ -1,3 +1,21 @@
 @import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
+
+body {
+  background: linear-gradient(135deg, #e0e0e0 0%, #eeead1 45%, #eeec95 50%, #eeead1 55%, #e0e0e0 100%);
+  background-size: 400% 400%;
+  animation: shimmer 10s ease infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
