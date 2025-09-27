@@ -18,6 +18,17 @@ export const projects: Project[] = [
         ],
     },
     {
+        title: "Portfolio-Performance Enhanced",
+        description: "A portfolio visualisor, using yahoo finance api and the csv data of portfolio-performance. With a highly modern, intuitive and unique Design.",
+        githubLink: "https://github.com/Tomato6966/portfolio-performance-enhanced/tree/main",
+        images: [
+            "https://i.imgur.com/4ftrQNH.png",
+            "https://i.imgur.com/bIUIHVi.png",
+            "https://i.imgur.com/DWKYRim.png"
+        ],
+        link: "https://portfolio-performance-enhanced.netlify.app/"
+    },
+    {
         title: "Financial Goals",
         description: "A website which helps users to plan & visualize financial goals. It's also a compound calculator at the same time.",
         link: "https://tomato6966.github.io/financial-goals-visualiser/",
